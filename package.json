@@ -1,0 +1,35 @@
+{
+  "name": "vue-typescript-template-system",
+  "version": "1.0.0",
+  "description": "基于 vue3 + typescript + pinia + vue-router + element-plus 后台管理系统",
+  "scripts": {
+    "serve:dev": "webpack serve --mode=development",
+    "serve:prod": "webpack serve --mode=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wing-9527/vue-typescript-template-system.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wing-9527/vue-typescript-template-system/issues"
+  },
+  "homepage": "https://github.com/Wing-9527/vue-typescript-template-system#readme",
+  "dependencies": {
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^8.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "vue-loader": "^17.0.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
