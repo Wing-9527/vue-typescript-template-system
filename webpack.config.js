@@ -47,10 +47,17 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.TTF$/i,
+        type: 'asset/resource'
       }
     ]
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
     extensions: ['.js', '.json', '.ts', '.vue']
   },
   devtool: 'source-map',

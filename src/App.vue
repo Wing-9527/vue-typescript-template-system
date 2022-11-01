@@ -12,6 +12,7 @@
 
 <style scoped lang="scss">
   .msg {
+    font-family: MyFont;
     background-color: aqua;
   }
 </style>
