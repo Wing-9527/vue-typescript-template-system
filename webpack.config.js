@@ -1,38 +1,51 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const DotEnv = require('dotenv-webpack')
-// env
-// const loadEnv = require('./config/loadEnv')
-// const env = loadEnv(process.env)
+const DotEnv = require('dotenv-webpack')
+// load env
+const loadEnv = require('./config/loadEnv')
+const env = loadEnv(process.env)
 
 module.exports = {
   entry: './src/main.ts',
-  // mode: env,
+  mode: env,
   context: path.resolve(__dirname),
-  // output: {
-  //   path: path.resolve(__dirname, 'dist'),
-  //   filename: 'bundle.js',
-  //   publicPath: '/'
-  // },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
   devServer: {
-    open: true,
+    // open: true,
     hot: true
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        // exclude: ['/node_modules'],
+        exclude: ['/node_modules'],
         use: [
-          'ts-loader'
+          {
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          }
         ]
       },
       {
         test: /\.vue$/,
-        // exclude: ['/node_modules'],
+        exclude: ['/node_modules'],
         use: [
           'vue-loader'
+        ]
+      },
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
@@ -47,9 +60,9 @@ module.exports = {
       template: './index.html'
     }),
     new VueLoaderPlugin(),
-    // new DotEnv({
-    //   path: `./env.${env}`
-    // })
+    new DotEnv({
+      path: `./.env.${env}`
+    })
   ],
   performance: {
     maxAssetSize: 500000,
