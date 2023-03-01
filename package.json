@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "基于 vue3 + typescript + pinia + vue-router + element-plus 后台管理系统",
   "scripts": {
+    "start": "pnpm run serve:dev",
     "serve:dev": "webpack serve --mode=development",
     "serve:prod": "webpack serve --mode=production",
     "build:dev": "webpack --mode=development",
@@ -23,6 +24,11 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "babel-loader": "^9.1.2",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
     "html-webpack-plugin": "^5.5.0",

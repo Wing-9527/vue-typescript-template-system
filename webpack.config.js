@@ -41,6 +41,13 @@ module.exports = {
         ]
       },
       {
+        test: /\.[jt]sx$/,
+        exclude: ['/node_modules'],
+        use: [
+          'babel-loader'
+        ]
+      },
+      {
         test: /\.s[ac]ss$/,
         use: [
           'style-loader',
@@ -58,7 +65,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src')
     },
-    extensions: ['.js', '.json', '.ts', '.vue']
+    extensions: ['.js', '.json', '.ts', '.vue', '.jsx', '.tsx']
   },
   devtool: 'source-map',
   plugins: [
