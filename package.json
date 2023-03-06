@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/Wing-9527/vue-typescript-template-system#readme",
   "dependencies": {
-    "vue": "^3.2.41"
+    "tdesign-vue-next": "^1.1.1",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
@@ -31,6 +33,8 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
+    "eslint": "^8.35.0",
+    "eslint-plugin-vue": "^9.9.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
