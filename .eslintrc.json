@@ -14,7 +14,11 @@
     "plugin:vue/vue3-recommended",
     "./.eslintrc-auto-import.json"
   ],
-  "ignorePatterns": ["node_modules", "./webpack.config.js"],
+  "ignorePatterns": [
+    "node_modules",
+    "webpack.config.js",
+    "commitlint.config.js"
+  ],
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
