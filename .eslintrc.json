@@ -2,14 +2,25 @@
   "root": true,
   "env": {
     "browser": true,
+    "node": true,
     "commonjs": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended"],
-  "ignorePatterns": ["node_modules"],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "./.eslintrc-auto-import.json"
+  ],
+  "ignorePatterns": ["node_modules", "./webpack.config.js"],
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
-    "vue/multi-word-component-names": 0
+    "vue/multi-word-component-names": 0,
+    "vue/max-attributes-per-line": 0,
+    "vue/singleline-html-element-content-newline": 0,
+    "no-undef": 0
   }
 }
