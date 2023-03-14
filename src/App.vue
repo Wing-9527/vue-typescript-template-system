@@ -1,9 +1,11 @@
 <template>
-  <RouterView></RouterView>
+  <RouterView />
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
-<style scoped lang="scss">
+<style lang="scss">
+body {
+  margin: 0;
+}
 </style>
