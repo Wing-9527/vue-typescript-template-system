@@ -4,6 +4,7 @@ import App from './App.vue'
 
 import TDesign from 'tdesign-vue-next'
 
+import '@/styles/reset.scss'
 import '@/styles/global.scss'
 
 import router from './router'
