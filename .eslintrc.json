@@ -11,6 +11,7 @@
   },
   "extends": [
     "eslint:recommended",
+    "eslint-config-prettier",
     "plugin:vue/vue3-recommended",
     "./.eslintrc-auto-import.json"
   ],
