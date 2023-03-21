@@ -44,9 +44,9 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import { UserCircleIcon, LockOnIcon } from 'tdesign-icons-vue-next'
 import { useLoginStore } from '@/store/login'
-import { useRouter } from 'vue-router'
 
 let router = useRouter()
 
@@ -54,7 +54,7 @@ let loginStore = useLoginStore()
 
 let formData = ref({
   account: 'admin',
-  password: '123',
+  password: '123456',
 })
 
 let rules = {
@@ -64,7 +64,7 @@ let rules = {
 
 async function onSubmit({ validateResult }) {
   if (validateResult === true) {
-    // TODO: 调用 /login 接口
+    // request login
     await loginStore.reqLogin(formData.value)
     router.push('/home')
   }
