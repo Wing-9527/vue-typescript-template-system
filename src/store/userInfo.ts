@@ -1,9 +1,18 @@
 import { defineStore } from 'pinia'
-
 import { reqUserInfoApi } from '@/api/login/login.api'
+import {
+  generateRoutePathAndPermissionList,
+  filterDynamicRoute,
+} from '@/router/permissionUtils'
+import type { RouteStruct } from '@/router/router'
+import { dynamicRoutes } from '@/router/routes'
 
 interface UserInfoStoreState {
-  menu: Record<string, unknown>[]
+  name: string
+  role: string
+  permissionList: string[]
+  routePathList: string[]
+  menu: RouteStruct[]
 }
 
 export const useUserInfoStore = defineStore('userInfo', {
@@ -13,13 +22,23 @@ export const useUserInfoStore = defineStore('userInfo', {
   },
   state: () => {
     return {
+      name: '',
+      role: '',
+      permissionList: [],
+      routePathList: [],
       menu: [],
     } as UserInfoStoreState
   },
   actions: {
     async reqUserInfo() {
-      let res = await reqUserInfoApi()
-      this.menu = res.data
+      let { data: responseData } = await reqUserInfoApi()
+      this.name = responseData.name
+      this.role = responseData.role
+      let { permissionList, routePathList } =
+        generateRoutePathAndPermissionList(responseData.permissions)
+      this.permissionList = permissionList
+      this.routePathList = routePathList
+      this.menu = filterDynamicRoute(this.permissionList, dynamicRoutes)
     },
   },
 })
