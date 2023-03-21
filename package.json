@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "基于 vue3 + typescript + pinia + vue-router + element-plus 后台管理系统",
   "scripts": {
-    "start": "npm run serve:dev",
+    "start": "npm run serve",
     "prepare": "npx husky install",
-    "serve:dev": "webpack serve --mode=development",
-    "serve:prod": "webpack serve --mode=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
+    "serve": "webpack serve --mode=development",
+    "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -44,6 +42,7 @@
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-vue": "^9.9.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.3",
@@ -55,6 +54,7 @@
     "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
     "unplugin-auto-import": "^0.15.1",
+    "vitest": "^0.29.2",
     "vue-loader": "^17.0.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
