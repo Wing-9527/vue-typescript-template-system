@@ -32,6 +32,6 @@ pinia.use(piniaPluginPersistedstate)
 
 app.use(pinia)
 
-import './router/permission'
+import './permission'
 
 app.mount('#app')
