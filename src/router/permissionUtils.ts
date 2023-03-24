@@ -5,9 +5,8 @@ export function hasPermission(permissionList: string[], route: RouteStruct) {
     let isInclude = false
     route.meta.permission.forEach((item) => {
       isInclude = permissionList.includes(item)
-      if (isInclude) return true
     })
-    return false
+    return isInclude
   }
   return true
 }
@@ -39,7 +38,8 @@ export function filterDynamicRoute(
   permissionList: string[],
   routes: RouteStruct[]
 ) {
-  return routes.map((route) => {
+  let menu: RouteStruct[] = []
+  for (let route of routes) {
     let menuItem: RouteStruct = {
       ...route,
       children: [],
@@ -48,7 +48,8 @@ export function filterDynamicRoute(
       if (route.children && route.children.length) {
         menuItem.children = filterDynamicRoute(permissionList, route.children)
       }
+      menu.push(menuItem)
     }
-    return menuItem
-  })
+  }
+  return menu
 }
