@@ -1,11 +1,13 @@
 <template>
-  <RouterView />
+  <div id="app">
+    <RouterView />
+  </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="scss">
-body {
-  margin: 0;
+#app {
+  height: 100vh;
 }
 </style>
