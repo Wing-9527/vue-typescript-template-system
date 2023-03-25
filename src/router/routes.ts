@@ -23,6 +23,7 @@ export const dynamicRoutes = [
         meta: {
           title: '首页',
           permission: ['Home'],
+          icon: 'home',
         },
       },
       {
@@ -31,6 +32,7 @@ export const dynamicRoutes = [
         meta: {
           title: '系统管理',
           permission: ['SystemManage'],
+          icon: 'setting',
         },
         children: [
           {
@@ -39,6 +41,7 @@ export const dynamicRoutes = [
             meta: {
               title: '角色管理',
               permission: ['RoleManage'],
+              // icon: 'usergroup',
             },
             component: () =>
               import('@/views/systemManage/roleManage/index.vue'),
@@ -49,6 +52,7 @@ export const dynamicRoutes = [
             meta: {
               title: '账号管理',
               permission: ['AccountManage'],
+              // icon: 'user',
             },
             component: () =>
               import('@/views/systemManage/accountManage/index.vue'),

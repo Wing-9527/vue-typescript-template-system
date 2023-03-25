@@ -15,9 +15,9 @@
             :value="item.path"
             :title="item.meta?.title"
           >
-            <!-- <template #icon>
-                <t-icon name="code" />
-              </template> -->
+            <template #icon>
+              <t-icon :name="item.meta?.icon" />
+            </template>
             <t-menu-item
               v-for="subItem of item.children"
               :key="subItem.path"
@@ -28,6 +28,9 @@
             </t-menu-item>
           </t-submenu>
           <t-menu-item v-else :href="pathPrefix + item.path">
+            <template #icon>
+              <t-icon :name="item.meta?.icon" />
+            </template>
             {{ item.meta?.title }}
           </t-menu-item>
         </div>
@@ -38,7 +41,7 @@
       <t-content>
         <RouterView />
       </t-content>
-      <t-footer>Footer</t-footer>
+      <!-- <t-footer>Footer</t-footer> -->
     </t-layout>
   </t-layout>
 </template>
