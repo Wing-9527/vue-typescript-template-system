@@ -21,6 +21,7 @@ export const dynamicRoutes = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         meta: {
+          title: '首页',
           permission: ['Home'],
         },
       },
@@ -28,26 +29,29 @@ export const dynamicRoutes = [
         name: 'SystemManage',
         path: '/systemManege',
         meta: {
+          title: '系统管理',
           permission: ['SystemManage'],
         },
         children: [
           {
-            name: 'AccountManage',
-            path: '/systemManege/accountManage',
-            meta: {
-              permission: ['AccountManage'],
-            },
-            component: () =>
-              import('@/views/systemManage/accountManage/index.vue'),
-          },
-          {
             name: 'RoleManage',
             path: '/systemManege/roleManage',
             meta: {
+              title: '角色管理',
               permission: ['RoleManage'],
             },
             component: () =>
               import('@/views/systemManage/roleManage/index.vue'),
+          },
+          {
+            name: 'AccountManage',
+            path: '/systemManege/accountManage',
+            meta: {
+              title: '账号管理',
+              permission: ['AccountManage'],
+            },
+            component: () =>
+              import('@/views/systemManage/accountManage/index.vue'),
           },
         ],
       },
