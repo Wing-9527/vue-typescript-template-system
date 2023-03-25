@@ -13,6 +13,7 @@ interface UserInfoStoreState {
   permissionList: string[]
   routePathList: string[]
   menu: RouteStruct[]
+  avatar: string
 }
 
 export const useUserInfoStore = defineStore('userInfo', {
@@ -27,6 +28,7 @@ export const useUserInfoStore = defineStore('userInfo', {
       permissionList: [],
       routePathList: [],
       menu: [],
+      avatar: '',
     } as UserInfoStoreState
   },
   actions: {
@@ -39,6 +41,7 @@ export const useUserInfoStore = defineStore('userInfo', {
       this.permissionList = permissionList
       this.routePathList = routePathList
       this.menu = filterDynamicRoute(this.permissionList, dynamicRoutes)
+      this.avatar = responseData.avatar
     },
   },
 })
