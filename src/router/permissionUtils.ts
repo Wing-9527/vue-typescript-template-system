@@ -47,6 +47,7 @@ export function filterDynamicRoute(
     if (hasPermission(permissionList, route)) {
       if (route.children && route.children.length) {
         menuItem.children = filterDynamicRoute(permissionList, route.children)
+        menuItem.redirect = menuItem.children[0].path // 重定向到第一个子路由
       }
       menu.push(menuItem)
     }
