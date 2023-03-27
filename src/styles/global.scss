@@ -7,3 +7,10 @@ body {
   font-family: 'INKFREE';
   src: url('../fonts/INKFREE.TTF');
 }
+
+.action-container {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
