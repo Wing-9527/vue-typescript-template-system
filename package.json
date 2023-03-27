@@ -1,7 +1,7 @@
 {
   "name": "vue-typescript-template-system",
   "version": "1.0.0",
-  "description": "基于 vue3 + typescript + pinia + vue-router + element-plus 后台管理系统",
+  "description": "基于 vue3、typescript、tdesign-vue-next 中后台管理系统模板",
   "scripts": {
     "start": "npm run serve",
     "prepare": "npx husky install",
