@@ -12,15 +12,21 @@ export function hasPermission(permissionList: string[], route: RouteStruct) {
 }
 
 // 生成路由路径和权限列表
-export function generateRoutePathAndPermissionList(
+export function generatePermission(
   permissions: RoutePermissionsItem[]
 ) {
   let permissionList: string[] = []
   let routePathList: string[] = []
+  let btnPermissionMap: Record<string, string[]> = {}
   function iterator(permissions: RoutePermissionsItem[]) {
     for (let item of permissions) {
       permissionList.push(item.permission)
       routePathList.push(item.path)
+      if (item.actionEntitySet && item.actionEntitySet.length) {
+        btnPermissionMap[item.path] = item.actionEntitySet.map(
+          (actionEntity) => actionEntity.action
+        )
+      }
       if (item.children && item.children.length) {
         iterator(item.children)
       }
@@ -30,6 +36,7 @@ export function generateRoutePathAndPermissionList(
   return {
     permissionList,
     routePathList,
+    btnPermissionMap,
   }
 }
 

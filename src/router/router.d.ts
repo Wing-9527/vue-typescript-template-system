@@ -5,6 +5,7 @@ export type RoutePermissionsItem = {
   path: string
   permission: string
   children?: RoutePermissionsItem[]
+  actionEntitySet?: Record<string, string>[]
 }
 
 export type RouteStruct = {
@@ -20,4 +21,5 @@ export type RouteStruct = {
     permission: string[]
   }
   children?: RouteStruct[]
+  actionEntitySet?: Record<string, string>[]
 } & RouteRecordRaw

@@ -17,6 +17,8 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 // mockjs
 import './mock'
 
+import vAuth from '@/directives/vAuth'
+
 const app = createApp(App)
 
 const pinia = createPinia()
@@ -32,5 +34,8 @@ pinia.use(piniaPluginPersistedstate)
 app.use(pinia)
 
 import './permission'
+
+// directives
+app.directive('auth', vAuth)
 
 app.mount('#app')

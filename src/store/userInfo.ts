@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { reqUserInfoApi } from '@/api/login/login.api'
 import {
-  generateRoutePathAndPermissionList,
+  generatePermission,
   filterDynamicRoute,
 } from '@/router/permissionUtils'
 import type { RouteStruct } from '@/router/router'
@@ -14,11 +14,12 @@ interface UserInfoStoreState {
   routePathList: string[]
   menu: RouteStruct[]
   avatar: string
+  btnPermissionMap: Record<string, string[]>
 }
 
 export const useUserInfoStore = defineStore('userInfo', {
   persist: {
-    key: 'info',
+    key: 'userInfo',
     storage: sessionStorage,
   },
   state: () => {
@@ -29,6 +30,7 @@ export const useUserInfoStore = defineStore('userInfo', {
       routePathList: [],
       menu: [],
       avatar: '',
+      btnPermissionMap: {},
     } as UserInfoStoreState
   },
   actions: {
@@ -36,10 +38,11 @@ export const useUserInfoStore = defineStore('userInfo', {
       let { data: responseData } = await reqUserInfoApi()
       this.name = responseData.name
       this.role = responseData.role
-      let { permissionList, routePathList } =
-        generateRoutePathAndPermissionList(responseData.permissions)
+      let { permissionList, routePathList, btnPermissionMap } =
+        generatePermission(responseData.permissions)
       this.permissionList = permissionList
       this.routePathList = routePathList
+      this.btnPermissionMap = btnPermissionMap
       this.menu = filterDynamicRoute(this.permissionList, dynamicRoutes)
       this.avatar = responseData.avatar
     },
