@@ -31,6 +31,13 @@ pnpm install
 npm start
 ```
 
+- 登录
+
+```bash
+admin
+123456
+```
+
 - 打包
 
 ```bash
