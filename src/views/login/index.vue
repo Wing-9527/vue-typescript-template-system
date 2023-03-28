@@ -44,6 +44,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { UserCircleIcon, LockOnIcon } from 'tdesign-icons-vue-next'
 import { useLoginStore } from '@/store/login'
