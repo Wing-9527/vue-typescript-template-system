@@ -10,7 +10,8 @@ const vAuth = {
     //   sessionStorage.getItem('userInfo')!
     // )['btnPermissionMap'] // TODO: storage有时候读取不到（没有写入），pinia 持久化插件貌似是异步缓存
     let btnPermissionMap = userInfoStore.btnPermissionMap
-    let actions: string[] = btnPermissionMap[currentPath]
+    // 没有对应页面映射，actions  = []
+    let actions: string[] = btnPermissionMap[currentPath] ?? []
     if (actions && !actions.includes(action)) {
       el.parentNode?.removeChild(el)
     }
