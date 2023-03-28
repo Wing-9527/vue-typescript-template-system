@@ -1,9 +1,10 @@
-import type { RoutePermissionsItem, RouteStruct } from './router'
+import type { RoutePermissionsItem } from './router'
+import type { RouteRecordRaw } from 'vue-router'
 
-export function hasPermission(permissionList: string[], route: RouteStruct) {
+export function hasPermission(permissionList: string[], route: RouteRecordRaw) {
   if (route.meta && route.meta.permission) {
     let isInclude = false
-    route.meta.permission.forEach((item) => {
+    ;(route.meta.permission as string[]).forEach((item) => {
       isInclude = permissionList.includes(item)
     })
     return isInclude
@@ -12,9 +13,7 @@ export function hasPermission(permissionList: string[], route: RouteStruct) {
 }
 
 // 生成路由路径和权限列表
-export function generatePermission(
-  permissions: RoutePermissionsItem[]
-) {
+export function generatePermission(permissions: RoutePermissionsItem[]) {
   let permissionList: string[] = []
   let routePathList: string[] = []
   let btnPermissionMap: Record<string, string[]> = {}
@@ -43,11 +42,11 @@ export function generatePermission(
 // 根据生成的权限列表（permissionList），过滤路由
 export function filterDynamicRoute(
   permissionList: string[],
-  routes: RouteStruct[]
+  routes: RouteRecordRaw[]
 ) {
-  let menu: RouteStruct[] = []
+  let menu: RouteRecordRaw[] = []
   for (let route of routes) {
-    let menuItem: RouteStruct = {
+    let menuItem: RouteRecordRaw = {
       ...route,
       children: [],
     }

@@ -4,7 +4,7 @@ import {
   generatePermission,
   filterDynamicRoute,
 } from '@/router/permissionUtils'
-import type { RouteStruct } from '@/router/router'
+import type { RouteRecordRaw } from 'vue-router'
 import { dynamicRoutes } from '@/router/routes'
 
 interface UserInfoStoreState {
@@ -12,7 +12,7 @@ interface UserInfoStoreState {
   role: string
   permissionList: string[]
   routePathList: string[]
-  menu: RouteStruct[]
+  menu: RouteRecordRaw[]
   avatar: string
   btnPermissionMap: Record<string, string[]>
 }

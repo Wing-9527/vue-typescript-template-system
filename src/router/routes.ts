@@ -1,5 +1,3 @@
-// import type { RouteStruct } from './router'
-
 // 基础路由
 export const basicRoutes = [
   {
