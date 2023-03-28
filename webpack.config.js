@@ -7,7 +7,7 @@ const UnpluginAutoImportWebpack = require('unplugin-auto-import/webpack')
 const loadEnv = require('./config/loadEnv')
 const env = loadEnv(process.env)
 // auto import options
-const autoImportOptions = require('./config/autoImportOptions')
+const autoImportConfig = require('./autoImportConfig')
 
 module.exports = {
   entry: './src/main.ts',
@@ -83,7 +83,7 @@ module.exports = {
     new DotEnv({
       path: `./.env.${env}`,
     }),
-    UnpluginAutoImportWebpack(autoImportOptions),
+    UnpluginAutoImportWebpack(autoImportConfig),
   ],
   performance: {
     maxAssetSize: 500000,
