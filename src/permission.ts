@@ -28,7 +28,7 @@ router.beforeEach(async (to, from, next) => {
         next('/home')
       }
       // 如果有该路由则跳转，无则重定向到404
-      let hasPage = userInfoStore.routePathList.includes(to.path)
+      let hasPage = userInfoStore.routePathList.includes(to.path) // 不 F5 刷新，从内存读取
       if (hasPage) {
         next()
       }
