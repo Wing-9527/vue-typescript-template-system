@@ -53,7 +53,7 @@ let router = useRouter()
 let loginStore = useLoginStore()
 
 let formData = ref({
-  account: 'admin',
+  account: 'user',
   password: '123456',
 })
 

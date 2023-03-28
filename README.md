@@ -31,10 +31,10 @@ pnpm install
 npm start
 ```
 
-- 登录
+- 登录（账号、密码）
 
 ```bash
-admin
+user
 123456
 ```
 
