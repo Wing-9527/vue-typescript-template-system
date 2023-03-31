@@ -9,29 +9,33 @@
           />
           <span v-show="!collapsed" class="system-name">Vue admin</span>
         </template>
-        <div v-for="item of renderMenu" :key="item.path" :value="item.path">
+        <div
+          v-for="item of renderMenu"
+          :key="item['path']"
+          :value="item['path']"
+        >
           <t-submenu
-            v-if="item.children?.length"
-            :value="item.path"
-            :title="item.meta?.title"
+            v-if="item['children']?.length"
+            :value="item['path']"
+            :title="item['meta']?.title"
           >
             <template #icon>
-              <t-icon :name="item.meta?.icon" />
+              <t-icon :name="item['meta']?.icon || ''" />
             </template>
             <t-menu-item
-              v-for="subItem of item.children"
-              :key="subItem.path"
-              :value="subItem.path"
-              :href="pathPrefix + subItem.path"
+              v-for="subItem of item['children']"
+              :key="subItem['path']"
+              :value="subItem['path']"
+              :href="pathPrefix + subItem['path']"
             >
-              {{ subItem.meta?.title }}
+              {{ subItem['meta']?.title }}
             </t-menu-item>
           </t-submenu>
-          <t-menu-item v-else :href="pathPrefix + item.path">
+          <t-menu-item v-else :href="pathPrefix + item['path']">
             <template #icon>
-              <t-icon :name="item.meta?.icon" />
+              <t-icon :name="item['meta']?.icon" />
             </template>
-            {{ item.meta?.title }}
+            {{ item['meta']?.title }}
           </t-menu-item>
         </div>
         <template #operations>
