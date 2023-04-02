@@ -12,9 +12,19 @@ interface UserInfoStoreState {
   role: string
   permissionList: string[]
   routePathList: string[]
-  menu: RouteRecordRaw[]
+  menu: MenuRecordRaw[]
   avatar: string
   btnPermissionMap: Record<string, string[]>
+}
+
+type MenuRecordRaw = RouteRecordRaw & {
+  meta: {
+    title: string
+    keepAlive: string
+    permission: string[]
+    icon: string
+  }
+  children: MenuRecordRaw[]
 }
 
 export const useUserInfoStore = defineStore('userInfo', {
@@ -43,7 +53,10 @@ export const useUserInfoStore = defineStore('userInfo', {
       this.permissionList = permissionList
       this.routePathList = routePathList
       this.btnPermissionMap = btnPermissionMap
-      this.menu = filterDynamicRoute(this.permissionList, dynamicRoutes)
+      this.menu = filterDynamicRoute(
+        this.permissionList,
+        dynamicRoutes
+      ) as MenuRecordRaw[]
       this.avatar = responseData.avatar
     },
   },

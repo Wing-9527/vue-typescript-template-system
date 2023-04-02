@@ -15,12 +15,12 @@
           :value="item['path']"
         >
           <t-submenu
-            v-if="item['children']?.length"
+            v-if="item['children']['length']"
             :value="item['path']"
-            :title="item['meta']?.title"
+            :title="item['meta']['title']"
           >
             <template #icon>
-              <t-icon :name="item['meta']?.icon || ''" />
+              <t-icon :name="item['meta']['icon']" />
             </template>
             <t-menu-item
               v-for="subItem of item['children']"
@@ -28,14 +28,14 @@
               :value="subItem['path']"
               :href="pathPrefix + subItem['path']"
             >
-              {{ subItem['meta']?.title }}
+              {{ subItem['meta']['title'] }}
             </t-menu-item>
           </t-submenu>
           <t-menu-item v-else :href="pathPrefix + item['path']">
             <template #icon>
-              <t-icon :name="item['meta']?.icon" />
+              <t-icon :name="item['meta']['icon']" />
             </template>
-            {{ item['meta']?.title }}
+            {{ item['meta']['title'] }}
           </t-menu-item>
         </div>
         <template #operations>
