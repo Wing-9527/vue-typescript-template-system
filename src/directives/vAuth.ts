@@ -8,7 +8,7 @@ const vAuth = {
     let action: string = binding.arg
     // let btnPermissionMap: Record<string, string[]> = JSON.parse(
     //   sessionStorage.getItem('userInfo')!
-    // )['btnPermissionMap'] // TODO: storage有时候读取不到（没有写入），pinia 持久化插件貌似是异步缓存
+    // )['btnPermissionMap'] // TODO: storage 清除后，需要 window.reload()
     let btnPermissionMap = userInfoStore.btnPermissionMap
     // 没有对应页面映射，actions  = []
     let actions: string[] = btnPermissionMap[currentPath] ?? []
